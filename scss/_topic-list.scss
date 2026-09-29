@@ -1,0 +1,62 @@
+// Modernize redeclares several of these on <body>, so they are set on the list
+// itself rather than :root.
+.topic-list,
+.latest-topic-list {
+  --content-border-color: var(--cl-rule);
+  --d-table-border-top-height: 1px;
+  --title-color--read: var(--cl-ink-2);
+  --excerpt-color: var(--cl-ink-2);
+  --metadata-color: var(--cl-ink-3);
+  --d-topic-list-header-text-color: var(--cl-ink-3);
+  --topic-title-font-weight: 500;
+  --topic-title-font-weight--visited: 500;
+
+  // The only switch between the Petrona hypothesis and Public Sans:
+  // var(--cl-font-serif) or var(--cl-font-sans).
+  --cl-font-title: var(--cl-font-serif);
+}
+
+.topic-list .main-link a.title,
+.latest-topic-list-item .main-link a.title {
+  font-family: var(--cl-font-title);
+}
+
+.topic-list td.num,
+.topic-list .activity,
+.latest-topic-list .topic-stats {
+  font-family: var(--cl-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+// The number carries the unread state; the outline only frames it.
+.topic-list .badge-notification.unread-posts {
+  background: transparent;
+  color: var(--tertiary);
+  box-shadow: inset 0 0 0 1px var(--tertiary);
+  border-radius: 2px;
+  font-family: var(--cl-font-mono);
+}
+
+.topic-list .topic-excerpt a,
+.topic-list .topic-excerpt-more {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+// Filter row. `.nav-pills` stays native: modernize owns its design.
+.list-controls {
+  --d-input-border: 1px solid var(--cl-rule-control);
+  --token-color-border-input: var(--cl-rule-control);
+  --d-button-primary-bg-color: var(--primary);
+  --d-button-primary-bg-color--hover: var(--cl-ink-2);
+  --d-button-primary-text-color: var(--cl-on-ink);
+  --d-button-primary-text-color--hover: var(--cl-on-ink);
+  --d-button-primary-icon-color: var(--cl-on-ink);
+  --d-button-primary-icon-color--hover: var(--cl-on-ink);
+}
+
+.list-controls .select-kit-header,
+.list-controls .btn-default {
+  border: 1px solid var(--cl-rule-control);
+  border-radius: 2px;
+}

@@ -1,0 +1,44 @@
+{
+  "name": "CannLabs Community",
+  "component": false,
+  "authors": "CannLabs",
+  "about_url": "https://github.com/leo-even/CannLabs-Community-Theme",
+  "license_url": "https://github.com/leo-even/CannLabs-Community-Theme/blob/main/LICENSE",
+  "theme_version": "0.1.0",
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {},
+  "modifiers": {
+    "only_theme_color_schemes": true
+  },
+  "color_schemes": {
+    "CannLabs Comunidade Claro": {
+      "primary": "1C211A",
+      "secondary": "F2F4F0",
+      "tertiary": "A62B3E",
+      "quaternary": "4C544A",
+      "header_background": "161A15",
+      "header_primary": "F2F4F0",
+      "highlight": "F5F0E2",
+      "selected": "E1E6DC",
+      "hover": "ECEFE8",
+      "danger": "A62B3E",
+      "success": "3D6B3F",
+      "love": "A62B3E"
+    },
+    "CannLabs Comunidade Escuro": {
+      "primary": "E6EAE2",
+      "secondary": "1E231D",
+      "tertiary": "E8808D",
+      "quaternary": "BCC3B7",
+      "header_background": "0F120E",
+      "header_primary": "EEF1EA",
+      "highlight": "3A3420",
+      "selected": "262D24",
+      "hover": "242A22",
+      "danger": "E8808D",
+      "success": "6AAB6D",
+      "love": "E8808D"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.category-list {
+  --d-category-border-accent-width: 0;
+  --content-border-color: var(--cl-rule);
+}
+
+// Core's non-modernized rule uses a literal 6px, which the variable can't reach.
+.category-list tbody .category {
+  border-left-width: 0;
+}
+
+.category-list .category-description a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}

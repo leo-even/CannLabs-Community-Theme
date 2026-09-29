@@ -1,0 +1,22 @@
+// No font binaries are bundled yet: each file needs a recorded provenance
+// (source, version, sha256, OFL) before it is added (DEC-024). Until then every
+// stack resolves to its system fallbacks. Once authorized, add the file under
+// assets/fonts/, its key under "assets" in about.json, and one block per file:
+//
+// @font-face {
+//   font-family: "Public Sans";
+//   src: url($public-sans-400) format("woff2");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+:root {
+  --cl-font-sans:
+    "Public Sans", system-ui, -apple-system, "Segoe UI", roboto, arial,
+    sans-serif;
+  --cl-font-serif: petrona, georgia, cambria, "Times New Roman", serif;
+  --cl-font-mono:
+    "DM Mono", ui-monospace, "SF Mono", consolas, "Cascadia Mono", monospace;
+  --font-family: var(--cl-font-sans);
+  --heading-font-family: var(--cl-font-sans);
+}

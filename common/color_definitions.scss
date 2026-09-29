@@ -1,0 +1,48 @@
+// Raw per-scheme values. Only the `--cl-*` namespace lives on :root; components
+// map these at their own scope because modernize redeclares core variables on
+// <body>, which would shadow any :root mapping.
+:root {
+  @if is-light-color-scheme() {
+    --cl-paper: #f2f4f0;
+    --cl-paper-raised: #fafbf8;
+    --cl-paper-inset: #e7eae3;
+    --cl-ink: #1c211a;
+    --cl-ink-2: #4c544a;
+    --cl-ink-3: #5e665b;
+    --cl-on-ink: #f2f4f0;
+    --cl-warn: #7e5c14;
+    --cl-rule: #d3d8ce;
+    --cl-rule-strong: #b4bcae;
+    --cl-rule-control: #7a8376;
+    --cl-shell: #161a15;
+    --cl-shell-raised: #1f241d;
+    --cl-shell-rule: #2a2f27;
+    --cl-shell-ink: #b7beb2;
+    --cl-shell-ink-strong: #f2f4f0;
+    --cl-shell-ink-3: #8a9385;
+    --cl-shell-mark: #e8808d;
+    --cl-shell-live: #6aab6d;
+    --cl-shell-rule-control: #737c6e;
+  } @else {
+    --cl-paper: #1e231d;
+    --cl-paper-raised: #252a23;
+    --cl-paper-inset: #2a3027;
+    --cl-ink: #e6eae2;
+    --cl-ink-2: #bcc3b7;
+    --cl-ink-3: #969f91;
+    --cl-on-ink: #161a15;
+    --cl-warn: #c9a227;
+    --cl-rule: #343b31;
+    --cl-rule-strong: #434b3f;
+    --cl-rule-control: #737c6e;
+    --cl-shell: #0f120e;
+    --cl-shell-raised: #1a1e18;
+    --cl-shell-rule: #3a4136;
+    --cl-shell-ink: #b7beb2;
+    --cl-shell-ink-strong: #eef1ea;
+    --cl-shell-ink-3: #8a9385;
+    --cl-shell-mark: #e8808d;
+    --cl-shell-live: #6aab6d;
+    --cl-shell-rule-control: #737c6e;
+  }
+}

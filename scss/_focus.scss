@@ -1,0 +1,32 @@
+:root {
+  --cl-focus: var(--tertiary);
+}
+
+.d-header,
+.sidebar-wrapper,
+.hamburger-panel {
+  --cl-focus: var(--cl-shell-mark);
+}
+
+// Header parts are listed individually so the user, notification and search
+// menus, which render inside `.d-header`, stay untouched. `:is()` rather than
+// `:where()` so the ring outranks core's `outline: none` on buttons and header
+// icons; core's deliberate `.selected` topic-row indicator still wins over it.
+// The sidebar link needs core's own, more specific, selector.
+:is(
+    .d-header-icons,
+    .header-sidebar-toggle,
+    .d-header .title,
+    .d-header .auth-buttons,
+    .sidebar-wrapper,
+    .hamburger-panel,
+    .list-controls,
+    .topic-list,
+    .category-list,
+    .latest-topic-list
+  )
+  :focus-visible,
+.sidebar-section-link-wrapper .sidebar-section-link:focus-visible {
+  outline: 2px solid var(--cl-focus);
+  outline-offset: 2px;
+}

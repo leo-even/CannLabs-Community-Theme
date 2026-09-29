@@ -1,0 +1,213 @@
+@use "lib/viewport";
+
+// Header -------------------------------------------------------------------
+// The palette inversion is deliberately not applied at `.d-header`: the user,
+// notification and search menus render inside it and must stay paper.
+.d-header-wrap {
+  --shadow-header: 0 1px 0 var(--cl-shell-rule);
+}
+
+// Core defaults (`--d-hover`, `--secondary`) are paper tones, which would put
+// hovered or active icons paper-on-paper on the deep header.
+.d-header-icons,
+.header-sidebar-toggle {
+  --d-header-icon-color: var(--cl-shell-ink);
+  --d-header-icon-color--hover: var(--cl-shell-ink-strong);
+  --d-header-icon-color--active: var(--cl-shell-ink-strong);
+  --d-header-icon-background--hover: var(--cl-shell-raised);
+  --d-header-icon-background--active: var(--cl-shell-raised);
+}
+
+// Mirrors core's selectors, which use the raw paper `--primary-low` here.
+.header-sidebar-toggle button {
+  &:focus-visible,
+  .discourse-no-touch & {
+    &:hover {
+      background-color: var(--cl-shell-raised);
+    }
+  }
+
+  &:focus-visible {
+    background-color: var(--cl-shell-raised);
+  }
+}
+
+// Both auth buttons are `btn-primary`, an ink fill that disappears on deep.
+.d-header .auth-buttons {
+  --d-button-primary-bg-color: var(--cl-shell-ink-strong);
+  --d-button-primary-bg-color--hover: var(--cl-shell-ink);
+  --d-button-primary-text-color: var(--cl-shell);
+  --d-button-primary-text-color--hover: var(--cl-shell);
+  --d-button-primary-icon-color: var(--cl-shell);
+  --d-button-primary-icon-color--hover: var(--cl-shell);
+}
+
+.d-header .title {
+  --d-logo-height: 1.125em;
+
+  @include viewport.from(sm) {
+    --d-logo-height: 1.25em;
+  }
+}
+
+// Hit areas only; glyph sizes and header height stay native.
+@include viewport.until(sm) {
+  .d-header-icons .icon,
+  .header-sidebar-toggle button {
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
+  }
+
+  .d-header .title a {
+    min-block-size: 2.75rem;
+  }
+
+  .d-header .auth-buttons .btn {
+    min-block-size: 2.75rem;
+  }
+}
+
+// Sidebar and drawer --------------------------------------------------------
+// Core resolves the `--d-sidebar-*` and `--token-*` defaults at :root, so the
+// consuming variables themselves are redeclared here. The local palette
+// inversion lets nested native controls pick up shell colours. Menus opened
+// from the sidebar portal out of these scopes and stay paper.
+.sidebar-wrapper,
+.hamburger-panel {
+  --d-sidebar-background: var(--cl-shell);
+  --d-sidebar-footer-fade: rgb(from var(--cl-shell) r g b / 1);
+  --d-sidebar-border-color: var(--cl-shell-rule);
+  --d-sidebar-section-border-color: var(--cl-shell-rule);
+  --d-sidebar-header-color: var(--cl-shell-ink-3);
+  --d-sidebar-header-icon-color: var(--cl-shell-ink-3);
+  --d-sidebar-link-color: var(--cl-shell-ink);
+  --d-sidebar-link-icon-color: var(--cl-shell-ink-3);
+  --d-sidebar-link-badge-color: var(--cl-shell-ink-3);
+  --d-sidebar-prefix-background: var(--cl-shell-raised);
+  --d-sidebar-prefix-color: var(--cl-shell-ink);
+  --d-sidebar-suffix-color: var(--cl-shell-mark);
+  --d-sidebar-highlight-background: var(--cl-shell-raised);
+  --d-sidebar-highlight-color: var(--cl-shell-ink-strong);
+  --d-sidebar-highlight-prefix-background: var(--cl-shell-rule);
+  --d-sidebar-highlight-prefix-color: var(--cl-shell-ink-strong);
+  --d-sidebar-highlight-suffix-color: var(--cl-shell-mark);
+  --d-sidebar-highlight-hover-background: var(--cl-shell-rule);
+  --d-sidebar-highlight-hover-icon: var(--cl-shell-ink-strong);
+  --d-sidebar-active-background: var(--cl-shell-raised);
+  --d-sidebar-active-color: var(--cl-shell-ink-strong);
+  --d-sidebar-active-icon-color: var(--cl-shell-ink-strong);
+  --d-sidebar-active-prefix-background: var(--cl-shell-rule);
+  --d-sidebar-active-suffix-color: var(--cl-shell-mark);
+  --d-sidebar-active-font-weight: var(--token-font-weight-semibold);
+  --primary: var(--cl-shell-ink-strong);
+  --primary-high: var(--cl-shell-ink);
+  --primary-medium: var(--cl-shell-ink-3);
+  --primary-low-mid: color-mix(
+    in oklab,
+    var(--cl-shell-ink-3) 60%,
+    var(--cl-shell)
+  );
+  --primary-low: var(--cl-shell-rule);
+  --primary-very-low: var(--cl-shell-raised);
+  --primary-50: color-mix(in oklab, var(--cl-shell-ink-strong) 5%, var(--cl-shell));
+  --primary-100: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 10%,
+    var(--cl-shell)
+  );
+  --primary-200: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 20%,
+    var(--cl-shell)
+  );
+  --primary-300: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 30%,
+    var(--cl-shell)
+  );
+  --primary-400: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 40%,
+    var(--cl-shell)
+  );
+  --primary-500: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 50%,
+    var(--cl-shell)
+  );
+  --primary-600: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 60%,
+    var(--cl-shell)
+  );
+  --primary-700: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 70%,
+    var(--cl-shell)
+  );
+  --primary-800: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 80%,
+    var(--cl-shell)
+  );
+  --primary-900: color-mix(
+    in oklab,
+    var(--cl-shell-ink-strong) 90%,
+    var(--cl-shell)
+  );
+  --secondary: var(--cl-shell);
+  --tertiary: var(--cl-shell-mark);
+  --d-hover: var(--cl-shell-raised);
+  --d-selected: var(--cl-shell-raised);
+  --content-border-color: var(--cl-shell-rule);
+  --success: var(--cl-shell-live);
+  --danger: var(--cl-shell-mark);
+  --d-drag-indicator-color: var(--cl-shell-mark);
+  --token-color-text-default: var(--cl-shell-ink-strong);
+  --token-color-text-subtle: var(--cl-shell-ink);
+  --token-color-text-subtlest: var(--cl-shell-ink-3);
+  --token-color-icon-default: var(--cl-shell-ink-strong);
+  --token-color-icon-subtle: var(--cl-shell-ink);
+  --token-color-icon-subtlest: var(--cl-shell-ink-3);
+  --token-color-border-default: var(--cl-shell-rule);
+  --token-color-border-input: var(--cl-shell-rule-control);
+  --token-color-surface: var(--cl-shell);
+  --token-color-surface-hovered: var(--cl-shell-raised);
+  --token-color-surface-pressed: var(--cl-shell-rule);
+  --token-color-surface-focused: var(--cl-shell-rule);
+  --token-color-surface-selected: var(--cl-shell-raised);
+}
+
+// 44px touch rows; desktop pointer rows keep the native height.
+.hamburger-panel,
+html.discourse-touch .sidebar-wrapper {
+  --d-sidebar-row-height: max(2.75rem, 2.4em);
+}
+
+// The native centred grid leaves a paper gutter left of the sidebar on wide
+// screens. A box-shadow paints it without adding layout or scrollable overflow.
+// Core's RTL build flips these offsets, so no direction-specific rules here.
+.sidebar-wrapper {
+  box-shadow: -100vw 0 0 100vw var(--cl-shell);
+  clip-path: inset(0 0 0 -100vw);
+}
+
+// Active = weight + background + mark, never colour alone. An inset shadow
+// keeps the mark layout-neutral.
+.sidebar-section-link.active,
+.sidebar-section-link--active {
+  box-shadow: inset 2px 0 0 var(--cl-shell-mark);
+}
+
+.sidebar-section-header-text {
+  font-family: var(--cl-font-mono);
+  letter-spacing: 0.08em;
+}
+
+.hamburger-panel .menu-panel {
+  border-color: var(--cl-shell-rule);
+}
+
+.hamburger-panel .sidebar-section-header-wrapper {
+  min-block-size: 2.75rem;
+}
