@@ -13,9 +13,10 @@
   --topic-title-font-weight: 500;
   --topic-title-font-weight--visited: 500;
 
-  // Core colours ages, stats and last-activity links with these derived tokens,
-  // which fall to ~2.7:1 on paper.
+  // Core colours ages, stats, reply counts, pinned icons and last-activity links
+  // with these derived tokens, which fall to ~2.7:1 on paper.
   --primary-medium: var(--cl-ink-3);
+  --primary-med-or-secondary-med: var(--cl-ink-3);
   --primary-med-or-secondary-high: var(--cl-ink-3);
   --primary-low-mid-or-secondary-high: var(--cl-ink-3);
 
