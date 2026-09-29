@@ -25,6 +25,13 @@
   border-left-width: 0;
 }
 
+// Small-screen rows are `.category-list-item` / `.subcategory-list-item`, with
+// their own literal 6px accent.
+.category-list .category-list-item,
+.category-list .subcategory-list-item {
+  border-left-width: 0;
+}
+
 .category-list .category-description a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
