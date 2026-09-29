@@ -2,7 +2,8 @@
   --d-category-border-accent-width: 0;
   --content-border-color: var(--cl-rule);
 
-  // Derived tokens (restricted lock, stats) fall to ~2.7:1 on paper.
+  // Derived category-table metadata/icon tokens need accessible contrast on paper.
+  --primary-medium: var(--cl-ink-3);
   --primary-med-or-secondary-med: var(--cl-ink-3);
   --primary-med-or-secondary-high: var(--cl-ink-3);
 }
