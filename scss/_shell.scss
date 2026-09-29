@@ -186,6 +186,16 @@ html.discourse-touch .sidebar-wrapper {
   --d-sidebar-row-height: max(44px, 2.4em);
 }
 
+// The native centred grid leaves a paper gutter left of the sidebar on wide
+// screens. A box-shadow paints it without adding layout or scrollable overflow.
+// `has-sidebar-page` is only present while the sidebar is shown, so a collapsed
+// sidebar leaves paper. Core's RTL build flips the shadow but not the clip-path,
+// which leaves the paint disabled in RTL.
+body.has-sidebar-page .sidebar-wrapper {
+  box-shadow: -100vw 0 0 100vw var(--cl-shell);
+  clip-path: inset(0 0 0 -100vw);
+}
+
 // Active = weight + background + mark, never colour alone. An inset shadow
 // keeps the mark layout-neutral.
 .sidebar-section-link.active,
