@@ -8,7 +8,8 @@
   font-weight: 500;
 }
 
-.category-list .category-description {
+// Matches the specificity of core's `.categories-list .category` description rule.
+.category-list .category .category-description {
   color: var(--cl-ink-2);
 }
 
@@ -17,8 +18,10 @@
   font-variant-numeric: tabular-nums;
 }
 
-// Core's non-modernized rule uses a literal 6px, which the variable can't reach.
-.category-list tbody .category {
+// Core's non-modernized and small-screen rules use a literal 6px, which the
+// variable can't reach. The small-screen rule sits under `.categories-list`.
+.category-list tbody .category,
+.categories-list .category-list tbody .category {
   border-left-width: 0;
 }
 
