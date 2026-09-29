@@ -11,8 +11,10 @@
 // Header parts are listed individually so the user, notification and search
 // menus, which render inside `.d-header`, stay untouched. `:is()` rather than
 // `:where()` so the ring outranks core's `outline: none` on buttons and header
-// icons; core's deliberate `.selected` topic-row indicator still wins over it.
-// The sidebar link needs core's own, more specific, selector.
+// icons. The sidebar link, the filter selects (whose ring modernize removes)
+// and topic titles need selectors at least as specific as the rules suppressing
+// their outline. Core relies on the `.selected` row for titles, but that only
+// follows j/k navigation, not Tab; `.selected` itself is left untouched.
 :is(
     .d-header-icons,
     .header-sidebar-toggle,
@@ -26,7 +28,10 @@
     .latest-topic-list
   )
   :focus-visible,
-.sidebar-section-link-wrapper .sidebar-section-link:focus-visible {
+.sidebar-section-link-wrapper .sidebar-section-link:focus-visible,
+.list-controls .select-kit.single-select .select-kit-header:not(.btn):focus-visible,
+.topic-list .main-link a.title:focus-visible,
+.latest-topic-list-item .main-link a.title:focus-visible {
   outline: 2px solid var(--cl-focus);
   outline-offset: 2px;
 }
