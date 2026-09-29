@@ -1,3 +1,5 @@
+@use "lib/viewport";
+
 // Modernize redeclares several of these on <body>, so they are set on the list
 // itself rather than :root.
 .topic-list,
@@ -11,9 +13,21 @@
   --topic-title-font-weight: 500;
   --topic-title-font-weight--visited: 500;
 
+  // Core colours ages, stats and last-activity links with these derived tokens,
+  // which fall to ~2.7:1 on paper.
+  --primary-medium: var(--cl-ink-3);
+  --primary-med-or-secondary-high: var(--cl-ink-3);
+  --primary-low-mid-or-secondary-high: var(--cl-ink-3);
+
   // The only switch between the Petrona hypothesis and Public Sans:
   // var(--cl-font-serif) or var(--cl-font-sans).
   --cl-font-title: var(--cl-font-serif);
+}
+
+// The categories latest column marks visited titles with `--primary-medium`
+// rather than `--title-color--read`.
+.latest-topic-list {
+  --primary-medium: var(--cl-ink-2);
 }
 
 .topic-list .main-link a.title,
@@ -21,8 +35,9 @@
   font-family: var(--cl-font-title);
 }
 
+// Column headers stay in the native sans.
 .topic-list td.num,
-.topic-list .activity,
+.topic-list td.activity,
 .latest-topic-list .topic-stats {
   font-family: var(--cl-font-mono);
   font-variant-numeric: tabular-nums;
@@ -46,6 +61,7 @@
 // Filter row. `.nav-pills` stays native: modernize owns its design.
 .list-controls {
   --d-input-border: 1px solid var(--cl-rule-control);
+  --input-border-color: var(--cl-rule-control);
   --token-color-border-input: var(--cl-rule-control);
   --d-button-primary-bg-color: var(--primary);
   --d-button-primary-bg-color--hover: var(--cl-ink-2);
@@ -59,4 +75,12 @@
 .list-controls .btn-default {
   border: 1px solid var(--cl-rule-control);
   border-radius: 2px;
+}
+
+// Hit area only, in CSS px like the header targets.
+@include viewport.until(sm) {
+  .list-controls .select-kit-header,
+  .list-controls .btn {
+    min-block-size: 44px;
+  }
 }

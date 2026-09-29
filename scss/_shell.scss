@@ -50,20 +50,22 @@
   }
 }
 
-// Hit areas only; glyph sizes and header height stay native.
+// Hit areas only; glyph sizes and header height stay native. Target sizes are
+// CSS px (WCAG 2.5.5): a rem minimum doubles at 200% browser text and pushes
+// the header past the viewport, while native sizing already exceeds 44px there.
 @include viewport.until(sm) {
   .d-header-icons .icon,
   .header-sidebar-toggle button {
-    min-inline-size: 2.75rem;
-    min-block-size: 2.75rem;
+    min-inline-size: 44px;
+    min-block-size: 44px;
   }
 
   .d-header .title a {
-    min-block-size: 2.75rem;
+    min-block-size: 44px;
   }
 
   .d-header .auth-buttons .btn {
-    min-block-size: 2.75rem;
+    min-block-size: 44px;
   }
 }
 
@@ -181,15 +183,7 @@
 // 44px touch rows; desktop pointer rows keep the native height.
 .hamburger-panel,
 html.discourse-touch .sidebar-wrapper {
-  --d-sidebar-row-height: max(2.75rem, 2.4em);
-}
-
-// The native centred grid leaves a paper gutter left of the sidebar on wide
-// screens. A box-shadow paints it without adding layout or scrollable overflow.
-// Core's RTL build flips these offsets, so no direction-specific rules here.
-.sidebar-wrapper {
-  box-shadow: -100vw 0 0 100vw var(--cl-shell);
-  clip-path: inset(0 0 0 -100vw);
+  --d-sidebar-row-height: max(44px, 2.4em);
 }
 
 // Active = weight + background + mark, never colour alone. An inset shadow
@@ -208,6 +202,7 @@ html.discourse-touch .sidebar-wrapper {
   border-color: var(--cl-shell-rule);
 }
 
-.hamburger-panel .sidebar-section-header-wrapper {
-  min-block-size: 2.75rem;
+// The section toggle itself is only ~15px tall natively.
+.hamburger-panel .sidebar-section-header-wrapper .sidebar-section-header {
+  min-block-size: 44px;
 }

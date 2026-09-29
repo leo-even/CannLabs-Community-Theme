@@ -1,6 +1,20 @@
 .category-list {
   --d-category-border-accent-width: 0;
   --content-border-color: var(--cl-rule);
+  --primary-med-or-secondary-high: var(--cl-ink-3);
+}
+
+.category-list .category-name {
+  font-weight: 500;
+}
+
+.category-list .category-description {
+  color: var(--cl-ink-2);
+}
+
+.category-list td.topics {
+  font-family: var(--cl-font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 // Core's non-modernized rule uses a literal 6px, which the variable can't reach.
